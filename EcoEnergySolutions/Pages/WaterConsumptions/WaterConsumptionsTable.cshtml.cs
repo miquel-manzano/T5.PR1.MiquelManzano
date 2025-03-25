@@ -1,6 +1,5 @@
 using EcoEnergySolutions.Data;
 using EcoEnergySolutions.Models;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.IdentityModel.Tokens;
 

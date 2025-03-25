@@ -10,10 +10,6 @@ namespace EcoEnergySolutions.Pages.WaterConsumptions
         [BindProperty]
         public WaterConsumption NewEntry { get; set; }
 
-        public void OnGet()
-        {
-        }
-
         public IActionResult OnPost()
         {
             using var dbContext = new ApplicationDbContext();

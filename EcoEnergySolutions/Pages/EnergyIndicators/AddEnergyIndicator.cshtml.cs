@@ -8,11 +8,8 @@ namespace EcoEnergySolutions.Pages.EnergyIndicators
     public class AddEnergyIndicatorModel : PageModel
     {
         [BindProperty]
-        public EnergyIndicator NewEntry { get; set; }
+        public EnergyIndicator? NewEntry { get; set; }
 
-        public void OnGet()
-        {
-        }
 
         public IActionResult OnPost()
         {
