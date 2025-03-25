@@ -1,0 +1,37 @@
+﻿@page
+@model EcoEnergySolutions.Pages.EnergyIndicators.EnergyIndicatorsTableModel
+@{
+    ViewData["Title"] = "Energy Indicators";
+}
+
+<a asp-page="/AddEnergyIndicator" class="btn btn-primary">Add Energy Indicator</a>
+
+
+<div id="tablaDefault">
+    <h3>Energy Indicators</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Year</th>
+                <th>NetProduction</th>
+                <th>GasolineConsumption</th>
+                <th>ElectricDemand</th>
+                <th>AvailableProduction</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in Model.EnergyIndicatorsList)
+            {
+                <tr>
+                    <td>@p.Id</td>
+                    <td>@p.Year</td>
+                    <td>@p.NetProduction</td>
+                    <td>@p.GasolineConsumption</td>
+                    <td>@p.ElectricDemand</td>
+                    <td>@p.AvailableProduction</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
