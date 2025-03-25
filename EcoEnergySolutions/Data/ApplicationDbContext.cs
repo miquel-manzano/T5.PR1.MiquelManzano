@@ -8,6 +8,7 @@ namespace EcoEnergySolutions.Data
         public DbSet<EnergyIndicator> EnergyIndicators { get; set; }
         public DbSet<WaterConsumption> WaterConsumptions { get; set; }
 
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var configuration = new ConfigurationBuilder()

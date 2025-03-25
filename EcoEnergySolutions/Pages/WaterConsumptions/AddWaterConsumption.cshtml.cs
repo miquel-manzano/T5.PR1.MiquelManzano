@@ -3,12 +3,12 @@ using EcoEnergySolutions.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace EcoEnergySolutions.Pages.EnergyIndicators
+namespace EcoEnergySolutions.Pages.WaterConsumptions
 {
-    public class AddEnergyIndicatorModel : PageModel
+    public class AddWaterConsumptionModel : PageModel
     {
         [BindProperty]
-        public EnergyIndicator NewEntry { get; set; }
+        public WaterConsumption NewEntry { get; set; }
 
         public void OnGet()
         {
@@ -17,10 +17,10 @@ namespace EcoEnergySolutions.Pages.EnergyIndicators
         public IActionResult OnPost()
         {
             using var dbContext = new ApplicationDbContext();
-            
-            dbContext.EnergyIndicators.Add(NewEntry);
+
+            dbContext.WaterConsumptions.Add(NewEntry);
             dbContext.SaveChanges();
-            return RedirectToPage("/EnergyIndicators/EnergyIndicatorsTable");
+            return RedirectToPage("/WaterConsumptions/WaterConsumptionsTable");
         }
     }
 }

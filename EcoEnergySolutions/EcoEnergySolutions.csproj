@@ -24,7 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\WaterConsumptions\" />
     <Folder Include="Pages\Simulations\" />
   </ItemGroup>
 
