@@ -27,6 +27,21 @@ CREATE TABLE WaterConsumptions (
 );
 GO
 
+-- Crear tabla Simulations (para el modelo Simulations)
+CREATE TABLE Simulations (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+	Type NVARCHAR(100) NULL,
+    SunHours INT NULL,
+	WindSpeed DOUBLE PRECISION NULL,
+	WaterFlow DOUBLE PRECISION NULL,
+	Ratio DOUBLE PRECISION NULL,
+	GeneratedEnergy DOUBLE PRECISION NULL,
+	KWhCost DOUBLE PRECISION NULL,
+	KWhPrice DOUBLE PRECISION NULL,
+	Date DATETIME NOT NULL DEFAULT GETDATE()
+);
+GO
+
 -- Índices (opcionales pero recomendados)
 CREATE INDEX IX_EnergyIndicators_Year ON EnergyIndicators(Year);
 CREATE INDEX IX_WaterConsumptions_Year ON WaterConsumptions(Year);
@@ -37,3 +52,9 @@ GO
 -- Combrobar tablas con consultas
 SELECT * FROM EnergyIndicators;
 SELECT * FROM WaterConsumptions;
+
+
+-- Borrar tablas
+DROP TABLE EnergyIndicators;
+DROP TABLE WaterConsumptions;
+DROP TABLE Simulations;

@@ -3,22 +3,23 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EcoEnergySolutions.Models
 {
-    [Table("EnergyIndicators")]
-    public class EnergyIndicator
+    [Table("Simulations")]
+    public class Simulation
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-
+        public string Type { get; set; }
+        public int SunHours { get; set; }
+        public double WindSpeed { get; set; }
+        public double WaterFlow { get; set; }
+        public double Ratio { get; set; }
+        public double GeneratedEnergy { get; set; }
+        public double KWhCost { get; set; }
+        public double KWhPrice { get; set; }
         // Funciona a medias https://learn.microsoft.com/es-es/dotnet/api/system.web.ui.webcontrols.boundfield.dataformatstring?view=netframework-4.8
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM/yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime Year { get; set; }
-        [Required]
-        [Range(10.00f, 10000.00f)]
-        public Double NetProduction { get; set; }
-        public Double? GasolineConsumption { get; set; }
-        public Double? ElectricDemand { get; set; }
-        public Double? AvailableProduction { get; set; }
+        public DateTime Date { get; set; }
     }
 }

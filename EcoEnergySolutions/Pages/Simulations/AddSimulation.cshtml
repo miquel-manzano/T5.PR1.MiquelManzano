@@ -1,0 +1,41 @@
+﻿@page
+@model EcoEnergySolutions.Pages.Simulations.AddSimulationModel
+@{
+	ViewData["Title"] = "New Water Simulations";
+}
+
+
+<h1>Add new Entry</h1>
+<form method="post">
+	<div class="form-group">
+		<label asp-for="NewEntry.Type"></label>
+		<input asp-for="NewEntry.Type" class="form-control" />
+		<span asp-validation-for="NewEntry.Type"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="NewEntry.SunHours"></label>
+		<input asp-for="NewEntry.SunHours" class="form-control" />
+		<span asp-validation-for="NewEntry.SunHours"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="NewEntry.WindSpeed"></label>
+		<input asp-for="NewEntry.WindSpeed" class="form-control" />
+		<span asp-validation-for="NewEntry.WindSpeed"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="NewEntry.WaterFlow"></label>
+		<input asp-for="NewEntry.WaterFlow" class="form-control" />
+		<span asp-validation-for="NewEntry.WaterFlow"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="NewEntry.Ratio"></label>
+		<input asp-for="NewEntry.Ratio" class="form-control" />
+		<span asp-validation-for="NewEntry.Ratio"></span>
+	</div>
+	<button type="submit" class="btn btn-primary">Add</button>
+</form>
+
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}
