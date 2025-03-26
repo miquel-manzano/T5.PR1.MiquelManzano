@@ -1,0 +1,45 @@
+﻿@page
+@model EcoEnergySolutions.Pages.Simulations.SimulationsTableModel
+@{
+	ViewData["Title"] = "Simulations";
+}
+
+<a asp-page="/Simulations/AddSimulation" class="btn btn-primary">Add Simulation</a>
+<p>@Model.Message</p>
+
+<div id="tablaDefault">
+    <h3>Simulations</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>SunHours</th>
+                <th>WindSpeed</th>
+                <th>WaterFlow</th>
+                <th>Ratio</th>
+                <th>GeneratedEnergy</th>
+                <th>KWhCost</th>
+                <th>KWhPrice</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in Model.SimulationsList)
+            {
+                <tr>
+                    <td>@p.Id</td>
+                    <td>@p.Type</td>
+                    <td>@p.SunHours</td>
+                    <td>@p.WindSpeed</td>
+                    <td>@p.WaterFlow</td>
+                    <td>@p.Ratio</td>
+                    <td>@p.GeneratedEnergy</td>
+                    <td>@p.KWhCost</td>
+                    <td>@p.KWhPrice</td>
+                    <td>@p.Date</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

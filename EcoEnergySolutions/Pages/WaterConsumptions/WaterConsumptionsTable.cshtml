@@ -1,0 +1,37 @@
+﻿@page
+@model EcoEnergySolutions.Pages.WaterConsumptions.WaterConsumptionsTableModel
+@{
+	ViewData["Title"] = "Water Consumptions";
+}
+
+
+
+<a asp-page="/WaterConsumptions/AddWaterConsumption" class="btn btn-primary">Add Energy Indicator</a>
+<p>@Model.Message</p>
+
+<div id="tablaDefault">
+    <h3>Water Consumptions</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>County</th>
+                <th>Population</th>
+                <th>Year</th>
+                <th>Consumption</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in Model.WaterConsumptionsList)
+            {
+                <tr>
+                    <td>@p.Id</td>
+                    <td>@p.County</td>
+                    <td>@p.Population</td>
+                    <td>@p.Year</td>
+                    <td>@p.Consumption</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
