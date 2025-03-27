@@ -7,20 +7,26 @@ namespace EcoEnergySolutions.Pages.WaterConsumptions
 {
     public class WaterConsumptionsTableModel : PageModel
     {
+        private readonly ApplicationDbContext _context;
+        public WaterConsumptionsTableModel(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         public List<WaterConsumption> WaterConsumptionsList { get; set; }
         public string Message { get; set; }
+
         public void OnGet()
         {
-            using var dbContext = new ApplicationDbContext();
             WaterConsumptionsList = new List<WaterConsumption>();
 
-            if (dbContext.WaterConsumptions.IsNullOrEmpty())
+            if (_context.WaterConsumptions.IsNullOrEmpty())
             {
                 Message = "No data found...";
             }
             else
             {
-                WaterConsumptionsList = dbContext.WaterConsumptions.ToList();
+                WaterConsumptionsList = _context.WaterConsumptions.ToList();
             }
         }
     }

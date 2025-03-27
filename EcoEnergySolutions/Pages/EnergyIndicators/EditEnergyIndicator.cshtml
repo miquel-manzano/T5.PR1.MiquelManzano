@@ -1,0 +1,44 @@
+﻿@page "{id:int}"
+@model EcoEnergySolutions.Pages.EnergyIndicators.EditEnergyIndicatorModel
+@{
+	ViewData["Title"] = "Edit Energy Indicator";
+}
+
+<h2>Edit Energy Indicator</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="EnergyIndicator.Id" />
+
+    <div class="form-group">
+        <label asp-for="EnergyIndicator.Year"></label>
+        <input asp-for="EnergyIndicator.Year" class="form-control" />
+        <span asp-validation-for="EnergyIndicator.Year" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EnergyIndicator.NetProduction"></label>
+        <input asp-for="EnergyIndicator.NetProduction" class="form-control" />
+        <span asp-validation-for="EnergyIndicator.NetProduction" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EnergyIndicator.GasolineConsumption"></label>
+        <input asp-for="EnergyIndicator.GasolineConsumption" class="form-control" />
+        <span asp-validation-for="EnergyIndicator.GasolineConsumption" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EnergyIndicator.ElectricDemand"></label>
+        <input asp-for="EnergyIndicator.ElectricDemand" class="form-control" />
+        <span asp-validation-for="EnergyIndicator.ElectricDemand" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EnergyIndicator.AvailableProduction"></label>
+        <input asp-for="EnergyIndicator.AvailableProduction" class="form-control" />
+        <span asp-validation-for="EnergyIndicator.AvailableProduction" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-page="/EnergyIndicators/EnergyIndicatorsTable" class="btn btn-secondary">Cancel</a>
+</form>

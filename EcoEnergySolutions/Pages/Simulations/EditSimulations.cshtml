@@ -1,0 +1,45 @@
+﻿@page "{id:int}"
+@model EcoEnergySolutions.Pages.Simulations.EditSimulationsModel
+@{
+	ViewData["Title"] = "Edit Simulation";
+}
+
+
+<h2>Edit Simulation</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Simulation.Id" />
+
+    <div class="form-group">
+        <label asp-for="Simulation.Type"></label>
+        <input asp-for="Simulation.Type" class="form-control" />
+        <span asp-validation-for="Simulation.Type" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Simulation.SunHours"></label>
+        <input asp-for="Simulation.SunHours" class="form-control" />
+        <span asp-validation-for="Simulation.SunHours" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Simulation.WindSpeed"></label>
+        <input asp-for="Simulation.WindSpeed" class="form-control" />
+        <span asp-validation-for="Simulation.WindSpeed" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Simulation.WaterFlow"></label>
+        <input asp-for="Simulation.WaterFlow" class="form-control" />
+        <span asp-validation-for="Simulation.WaterFlow" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Simulation.Ratio"></label>
+        <input asp-for="Simulation.Ratio" class="form-control" />
+        <span asp-validation-for="Simulation.Ratio" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-page="/Simulations/SimulationsTable" class="btn btn-secondary">Cancel</a>
+</form>

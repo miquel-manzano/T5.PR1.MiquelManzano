@@ -7,13 +7,17 @@ namespace EcoEnergySolutions.Pages.Simulations
 {
     public class AddSimulationModel : PageModel
     {
+        private readonly ApplicationDbContext _context;
+        public AddSimulationModel(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         [BindProperty]
         public Simulation NewEntry { get; set; }
 
         public IActionResult OnPost()
         {
-            using var dbContext = new ApplicationDbContext();
-
             // Temporal HardCode
             //GeneratedEnergy KWhCost KWhPrice Date
             NewEntry.GeneratedEnergy = 0.00f;
@@ -21,8 +25,8 @@ namespace EcoEnergySolutions.Pages.Simulations
             NewEntry.KWhPrice = 0.00f;
             NewEntry.Date = DateTime.Now;
 
-            dbContext.Simulations.Add(NewEntry);
-            dbContext.SaveChanges();
+            _context.Simulations.Add(NewEntry);
+            _context.SaveChanges();
             return RedirectToPage("/Simulations/SimulationsTable");
         }
     }

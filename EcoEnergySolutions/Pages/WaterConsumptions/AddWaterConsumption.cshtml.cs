@@ -7,15 +7,19 @@ namespace EcoEnergySolutions.Pages.WaterConsumptions
 {
     public class AddWaterConsumptionModel : PageModel
     {
+        private readonly ApplicationDbContext _context;
+        public AddWaterConsumptionModel(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         [BindProperty]
         public WaterConsumption NewEntry { get; set; }
 
         public IActionResult OnPost()
         {
-            using var dbContext = new ApplicationDbContext();
-
-            dbContext.WaterConsumptions.Add(NewEntry);
-            dbContext.SaveChanges();
+            _context.WaterConsumptions.Add(NewEntry);
+            _context.SaveChanges();
             return RedirectToPage("/WaterConsumptions/WaterConsumptionsTable");
         }
     }

@@ -1,0 +1,44 @@
+﻿@page "{id:int}"
+@model EcoEnergySolutions.Pages.WaterConsumptions.EditWaterConsumptionModel
+@{
+	ViewData["Title"] = "Edit Water Consumptions";
+}
+
+<h2>Edit Water Consumption</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="WaterConsumption.Id" />
+
+    <div class="form-group">
+        <label asp-for="WaterConsumption.County"></label>
+        <input asp-for="WaterConsumption.County" class="form-control" />
+        <span asp-validation-for="WaterConsumption.County" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="WaterConsumption.Population"></label>
+        <input asp-for="WaterConsumption.Population" class="form-control" />
+        <span asp-validation-for="WaterConsumption.Population" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="WaterConsumption.Consumption"></label>
+        <input asp-for="WaterConsumption.Consumption" class="form-control" />
+        <span asp-validation-for="WaterConsumption.Consumption" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="WaterConsumption.Year"></label>
+        <input asp-for="WaterConsumption.Year" class="form-control" />
+        <span asp-validation-for="WaterConsumption.Year" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="WaterConsumption.Consumption"></label>
+        <input asp-for="WaterConsumption.Consumption" class="form-control" />
+        <span asp-validation-for="WaterConsumption.Consumption" class="text-danger"></span>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-page="/WaterConsumptions/WaterConsumptionsTable" class="btn btn-secondary">Cancel</a>
+</form>
