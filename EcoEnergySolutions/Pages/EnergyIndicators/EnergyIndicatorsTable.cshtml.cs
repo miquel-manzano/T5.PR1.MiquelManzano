@@ -7,20 +7,26 @@ namespace EcoEnergySolutions.Pages.EnergyIndicators
 {
     public class EnergyIndicatorsTableModel : PageModel
     {
+        private readonly ApplicationDbContext _context;
+        public EnergyIndicatorsTableModel(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         public List<EnergyIndicator> EnergyIndicatorsList { get; set; }
         public string Message { get; set; }
+
         public void OnGet()
         {
-            using var dbContext = new ApplicationDbContext();
             EnergyIndicatorsList = new List<EnergyIndicator>();
 
-            if (dbContext.EnergyIndicators.IsNullOrEmpty())
+            if (_context.EnergyIndicators.IsNullOrEmpty())
             {
                 Message = "No data found...";
             }
             else
             {
-                EnergyIndicatorsList = dbContext.EnergyIndicators.ToList();
+                EnergyIndicatorsList = _context.EnergyIndicators.ToList();
             }            
         }
     }

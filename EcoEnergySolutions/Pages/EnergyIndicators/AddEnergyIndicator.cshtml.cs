@@ -7,16 +7,19 @@ namespace EcoEnergySolutions.Pages.EnergyIndicators
 {
     public class AddEnergyIndicatorModel : PageModel
     {
+        private readonly ApplicationDbContext _context;
+        public AddEnergyIndicatorModel(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         [BindProperty]
         public EnergyIndicator? NewEntry { get; set; }
 
-
         public IActionResult OnPost()
         {
-            using var dbContext = new ApplicationDbContext();
-            
-            dbContext.EnergyIndicators.Add(NewEntry);
-            dbContext.SaveChanges();
+            _context.EnergyIndicators.Add(NewEntry);
+            _context.SaveChanges();
             return RedirectToPage("/EnergyIndicators/EnergyIndicatorsTable");
         }
     }

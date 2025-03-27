@@ -38,6 +38,9 @@
                     <td>@p.KWhCost</td>
                     <td>@p.KWhPrice</td>
                     <td>@p.Date</td>
+                    <td><a asp-page="./EditSimulations" asp-route-id="@p.Id" class="btn btn-sm btn-warning">Edit</a></td>
+                    <td><a asp-page="./DeleteSimulations" asp-route-id="@p.Id" class="btn btn-sm btn-danger">Delete</a></td>
+
                 </tr>
             }
         </tbody>
