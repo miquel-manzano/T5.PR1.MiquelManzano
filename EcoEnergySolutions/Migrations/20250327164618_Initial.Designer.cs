@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EcoEnergySolutions.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250326175941_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20250327164618_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -53,6 +53,47 @@ namespace EcoEnergySolutions.Migrations
                     b.ToTable("EnergyIndicators");
                 });
 
+            modelBuilder.Entity("EcoEnergySolutions.Models.Simulation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("GeneratedEnergy")
+                        .HasColumnType("float");
+
+                    b.Property<double>("KWhCost")
+                        .HasColumnType("float");
+
+                    b.Property<double>("KWhPrice")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Ratio")
+                        .HasColumnType("float");
+
+                    b.Property<int>("SunHours")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("WaterFlow")
+                        .HasColumnType("float");
+
+                    b.Property<double>("WindSpeed")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Simulations");
+                });
+
             modelBuilder.Entity("EcoEnergySolutions.Models.WaterConsumption", b =>
                 {
                     b.Property<int>("Id")
@@ -70,8 +111,8 @@ namespace EcoEnergySolutions.Migrations
                     b.Property<int?>("Population")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Year")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

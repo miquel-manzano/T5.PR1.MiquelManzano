@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EcoEnergySolutions.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250326182833_AddSimulationsTableMigration")]
-    partial class AddSimulationsTableMigration
+    [Migration("20250327164847_SeedTest")]
+    partial class SeedTest
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -111,8 +111,8 @@ namespace EcoEnergySolutions.Migrations
                     b.Property<int?>("Population")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Year")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

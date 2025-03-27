@@ -52,6 +52,11 @@ GO
 -- Combrobar tablas con consultas
 SELECT * FROM EnergyIndicators;
 SELECT * FROM WaterConsumptions;
+SELECT * FROM Simulations;
+
+DELETE FROM EnergyIndicators;
+DELETE FROM WaterConsumptions;
+DELETE FROM Simulations;
 
 
 -- Borrar tablas
