@@ -30,8 +30,8 @@
                     <td>@p.Population</td>
                     <td>@p.Year</td>
                     <td>@p.Consumption</td>
-                    <td><a asp-page="./EditWaterConsumption" asp-route-id="@p.Id" class="btn btn-sm btn-warning">Edit</a></td>
-                    <td><a asp-page="./DeleteWaterConsumption" asp-route-id="@p.Id" class="btn btn-sm btn-danger">Delete</a></td>
+                    <td><a asp-page="./EditWaterConsumption" asp-route-id="@p.Id" class="btn btn-sm btn-warning"><i class="bi bi-pencil-fill"></i></a></td>
+                    <td><a asp-page="./DeleteWaterConsumption" asp-route-id="@p.Id" class="btn btn-sm btn-danger"><i class="bi bi-trash-fill"></i></a></td>
                 </tr>
             }
         </tbody>
