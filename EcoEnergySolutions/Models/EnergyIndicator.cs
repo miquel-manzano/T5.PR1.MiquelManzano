@@ -15,10 +15,13 @@ namespace EcoEnergySolutions.Models
         [DisplayFormat(DataFormatString = "{0:MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Year { get; set; }
         [Required]
-        [Range(10.00f, 10000.00f)]
+        [Range(0.00f, 10000.00f)]
         public Double NetProduction { get; set; }
+        [Range(0.00f, 10000.00f)]
         public Double? GasolineConsumption { get; set; }
+        [Range(0.00f, 10000.00f)]
         public Double? ElectricDemand { get; set; }
+        [Range(0.00f, 10000.00f)]
         public Double? AvailableProduction { get; set; }
     }
 }
