@@ -16,9 +16,13 @@ namespace EcoEnergySolutions.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        [Required]
         public SimulationType Type { get; set; }
+        [Required]
         public int SunHours { get; set; }
+        [Required]
         public double WindSpeed { get; set; }
+        [Required]
         public double WaterFlow { get; set; }
         public double Ratio { get; set; }
         public double GeneratedEnergy { get; set; }
