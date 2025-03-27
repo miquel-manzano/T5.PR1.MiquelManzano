@@ -18,16 +18,23 @@ namespace EcoEnergySolutions.Pages.Simulations
 
         public IActionResult OnPost()
         {
-            // Temporal HardCode
-            //GeneratedEnergy KWhCost KWhPrice Date
-            NewEntry.GeneratedEnergy = 0.00f;
-            NewEntry.KWhCost = 0.00f;
-            NewEntry.KWhPrice = 0.00f;
+            NewEntry.GeneratedEnergy = EnergyGenerated(NewEntry.WaterFlow);
+            NewEntry.KWhCost = EnergyPrice(NewEntry.SunHours);
+            NewEntry.KWhPrice = EnergyPrice(NewEntry.WindSpeed);
             NewEntry.Date = DateTime.Now;
 
             _context.Simulations.Add(NewEntry);
             _context.SaveChanges();
             return RedirectToPage("/Simulations/SimulationsTable");
+        }
+
+        private Double EnergyGenerated(double value)
+        {
+            return (value * 15) / 2;
+        }
+        private Double EnergyPrice(double value)
+        {
+            return value * 10;
         }
     }
 }
