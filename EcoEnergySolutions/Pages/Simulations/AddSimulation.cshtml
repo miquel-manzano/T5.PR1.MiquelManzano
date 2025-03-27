@@ -1,4 +1,5 @@
 ﻿@page
+@using EcoEnergySolutions.Models
 @model EcoEnergySolutions.Pages.Simulations.AddSimulationModel
 @{
 	ViewData["Title"] = "New Water Simulations";
@@ -9,7 +10,10 @@
 <form method="post">
 	<div class="form-group">
 		<label asp-for="NewEntry.Type"></label>
-		<input asp-for="NewEntry.Type" class="form-control" />
+		<select asp-for="NewEntry.Type" asp-items="Html.GetEnumSelectList<SimulationType>()"
+				class="form-control">
+			<option value="">-- Select Type --</option>
+		</select>
 		<span asp-validation-for="NewEntry.Type"></span>
 	</div>
 	<div class="form-group">
